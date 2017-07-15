@@ -105,7 +105,7 @@ function AutoBot.OnUpdate()
 			
 		if GUI.IsEnabled(AutoBot.Identity .. "onlowhp") then
 			local perc = math.floor(Entity.GetHealth(AutoBot.Hero) / Entity.GetMaxHealth(AutoBot.Hero) * 100)		
-			if perc < 30 or Entity.GetHealth(AutoBot.Hero) < 300 then 
+			if perc < 15 or Entity.GetHealth(AutoBot.Hero) < 200 then 
 				Player.PrepareUnitOrders(Players.GetLocal(), Enum.UnitOrder.DOTA_UNIT_ORDER_MOVE_TO_POSITION, AutoBot.Fountain, Entity.GetOrigin(AutoBot.Fountain):__add(Vector(math.random(-500,500),math.random(-500,500),0)),
 					nil, Enum.PlayerOrderIssuer.DOTA_ORDER_ISSUER_HERO_ONLY, AutoBot.Hero, true, true)
 				AutoBot.NextTime = AutoBot.CurrentTime + NetChannel.GetAvgLatency(Enum.Flow.FLOW_OUTGOING) + 6
